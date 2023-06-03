@@ -1,7 +1,3 @@
 export default function Footer() {
-  return (
-    <div className="footer">
-      <p>#VANLIFE Copyright 2023</p>
-    </div>
-  );
+  return <footer>#VANLIFE Copyright &#169; 2023</footer>;
 }

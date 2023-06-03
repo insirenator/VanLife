@@ -1,13 +1,38 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const linkStyle = {
+  color: "black",
+  transform: "scale(1.1)",
+};
+
 export default function Navbar() {
   return (
     <div className="navbar">
-      <Link to="/" className="home-link">
+      <NavLink
+        to="/"
+        className="home-link"
+        style={({ isActive }) => (isActive ? linkStyle : null)}
+      >
         #VANLIFE
-      </Link>
-      <Link to="/host">Host</Link>
-      <Link to="/about">About</Link>
-      <Link to="/vans">Vans</Link>
+      </NavLink>
+      <NavLink
+        to="/host"
+        style={({ isActive }) => (isActive ? linkStyle : null)}
+      >
+        Host
+      </NavLink>
+      <NavLink
+        to="/about"
+        style={({ isActive }) => (isActive ? linkStyle : null)}
+      >
+        About
+      </NavLink>
+      <NavLink
+        to="/vans"
+        style={({ isActive }) => (isActive ? linkStyle : null)}
+      >
+        Vans
+      </NavLink>
     </div>
   );
 }
