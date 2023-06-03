@@ -25,7 +25,7 @@ function Van({ id, name, type, price, imageUrl }) {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            width: "150px",
+            width: "100%",
             height: "150px",
             marginInline: "auto",
             borderRadius: "8px",
