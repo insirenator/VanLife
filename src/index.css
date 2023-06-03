@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --clr-orange: rgb(255, 155, 74);
+  --clr-bgdark: rgb(71, 70, 70);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--clr-bgdark);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  /* border-bottom: 3px solid var(--clr-orange); */
+  padding: 1em;
+  background-color: rgb(251, 232, 208);
+}
+
+.navbar > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: grey;
+  margin-inline: 20px;
+}
+
+.navbar > a:hover {
+  color: black;
+}
+
+.navbar > .home-link {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: auto;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  color: black;
+  transition: all ease-in-out 0.3s;
+}
+
+.navbar > .home-link:hover {
+  text-shadow: 2px 2px 0px rgb(184, 178, 178);
+}
+
+.banner {
+  color: white;
+  padding: 2.5em;
+  background-image: url("assets/homepage-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner > h1 {
+  font-size: 40px;
+  text-shadow: 1px 2px 6px grey;
+}
+
+.banner > p {
+  font-weight: bold;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: all ease-in-out 0.05s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 2px 2px 3px grey;
+  transform: scale(1.01);
+}
+
+.btn:active {
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+.link-btn {
+  background-color: var(--clr-orange);
+  border: 2px solid rgb(215, 122, 65);
+  font-size: 18px;
+  width: 200px;
+  margin-top: 100px;
+  align-self: center;
+}
+
+.about {
+  color: white;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-between;
+}
+
+.about-image {
+  height: 250px;
+  width: min(700px, 100%);
+  background-image: url("assets/aboutpage-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about > h1 {
+  max-width: 500px;
+  margin-inline: 20px;
+}
+
+.about-content {
+  width: min(700px, 100%);
+  height: 250px;
+}
+
+.about-btn {
+  color: white;
+}
+
+.invite-card {
+  background-color: antiquewhite;
+  width: min(500px, 100%);
+  color: black;
+  padding-block: 2em;
+  padding-inline: 2em;
+  border-radius: 10px;
+  margin-block: 1em;
+  height: 250px;
+}
+
+.invite-card > button {
+  color: white;
+  background-color: black;
+  padding: 8px 16px;
+}
+
+.van-page-title {
+  padding: 10px;
+  margin-left: 1em;
+  color: white;
+}
+
+.van-card {
+  background-color: white;
+  color: black;
+  width: 200px;
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.van-card:hover {
+  transform: scale(1.01);
+}
+
+.van-card > .name {
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.van-card > .price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.van-list {
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.van-details-page {
+  color: white;
+  padding: 1em;
+}
+
+.van-details-page > .title {
+  text-align: center;
+}
+
+.van-details {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.van-details > .image {
+  width: min(300px, 100%);
+}
+
+.van-details > p {
+  width: min(600px, 100%);
+  margin-bottom: 3em;
+}
+
+.van-details > .image > img {
+  width: 100%;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.per-day {
+  font-weight: normal;
+  font-size: medium;
+}
+
+.type {
+  text-transform: capitalize;
+}
+
+.book-btn {
+  width: 150px;
+  height: 50px;
+  background-color: var(--clr-orange);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgb(162, 162, 162);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+@media (max-width: 1103px) {
+  .about {
+    justify-content: space-around;
+  }
+
+  .about > h1 {
+    min-width: 100px;
+    margin-inline: 0;
+  }
+}
