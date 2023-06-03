@@ -13,7 +13,7 @@ import HostLayout from "./components/HostLayout";
 function App() {
   return (
     <BrowserRouter>
-      basename={import.meta.env.DEV ? "/" : "/react-vite-gh-pages/"}
+      basename={import.meta.env.DEV ? "/" : "/VanLife/"}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
