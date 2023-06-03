@@ -1,5 +1,6 @@
 {
   "name": "react-router",
+  "homepage": "https://insirenator.github.io/VanLife",
   "private": true,
   "version": "0.0.0",
   "type": "module",
