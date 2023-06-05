@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const vanStyle = {
   display: "flex",
@@ -52,12 +53,9 @@ export default function HostVans() {
       </h1>
       <div>
         {vans.map((van) => (
-          <Van
-            key={van.id}
-            name={van.name}
-            price={van.price}
-            imageUrl={van.imageUrl}
-          />
+          <Link key={van.id} to={`/host/vans/${van.id}`}>
+            <Van name={van.name} price={van.price} imageUrl={van.imageUrl} />
+          </Link>
         ))}
       </div>
     </>

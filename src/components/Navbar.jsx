@@ -16,19 +16,19 @@ export default function Navbar() {
         #VANLIFE
       </NavLink>
       <NavLink
-        to="/host"
+        to="host"
         style={({ isActive }) => (isActive ? linkStyle : null)}
       >
         Host
       </NavLink>
       <NavLink
-        to="/about"
+        to="about"
         style={({ isActive }) => (isActive ? linkStyle : null)}
       >
         About
       </NavLink>
       <NavLink
-        to="/vans"
+        to="vans"
         style={({ isActive }) => (isActive ? linkStyle : null)}
       >
         Vans

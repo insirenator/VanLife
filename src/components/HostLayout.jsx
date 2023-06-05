@@ -16,20 +16,20 @@ export default function HostLayout() {
     <>
       <nav className="navbar">
         <NavLink
-          to="/host"
+          to="."
           end // To avoid /host matching with subroutes
           style={({ isActive }) => (isActive ? activeLink : null)}
         >
           Dashboard
         </NavLink>
         <NavLink
-          to="/host/income"
+          to="income"
           style={({ isActive }) => (isActive ? activeLink : null)}
         >
           Income
         </NavLink>
         <NavLink
-          to="/host/vans"
+          to="vans"
           style={({ isActive }) => (isActive ? activeLink : null)}
         >
           Vans
