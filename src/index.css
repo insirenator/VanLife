@@ -167,6 +167,22 @@ a {
   color: white;
 }
 
+.van-page-filters {
+  display: flex;
+  justify-content: space-evenly;
+  width: min(100%, 600px);
+  margin-inline: auto;
+}
+
+.van-page-filters > p {
+  background-color: var(--clr-bgdark);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+}
+
 .van-card {
   background-color: white;
   color: black;
