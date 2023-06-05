@@ -55,12 +55,16 @@ function Van({ id, name, type, price, imageUrl }) {
   );
 }
 
+const selected = {
+  color: "orange",
+  borderColor: "orange",
+};
+
 export default function Vans() {
   const [vans, setVans] = useState([]);
-  const [filters, setFilters] = useState([]);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const typeFilter = searchParams.getAll("type");
+  const typeFilter = searchParams.get("type");
   console.log(typeFilter);
 
   useEffect(() => {
@@ -70,30 +74,33 @@ export default function Vans() {
       .catch((err) => console.log(err));
   }, []);
 
-  function handleFilter(e, type) {
-    if (filters.includes(type)) {
-      e.target.style.borderColor = "white";
-      e.target.style.color = "white";
-      setFilters(filters.filter((t) => t !== type));
-    } else {
-      e.target.style.borderColor = "rgb(255, 155, 74)";
-      e.target.style.color = "rgb(255, 155, 74)";
-      setFilters([...filters, type]);
-    }
-  }
-
-  const displayedVans =
-    filters.length > 0
-      ? vans.filter((van) => filters.includes(van.type))
-      : vans;
+  const displayedVans = typeFilter
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
 
   return (
     <>
       <h1 className="van-page-title">Explore all our Options!</h1>
       <div className="van-page-filters">
-        <p onClick={(e) => handleFilter(e, "simple")}>Simple</p>
-        <p onClick={(e) => handleFilter(e, "rugged")}>Rugged</p>
-        <p onClick={(e) => handleFilter(e, "luxury")}>Luxury</p>
+        <p
+          onClick={() => setSearchParams({ type: "simple" })}
+          style={typeFilter === "simple" ? selected : null}
+        >
+          Simple
+        </p>
+        <p
+          onClick={() => setSearchParams({ type: "rugged" })}
+          style={typeFilter === "rugged" ? selected : null}
+        >
+          Rugged
+        </p>
+        <p
+          onClick={() => setSearchParams({ type: "luxury" })}
+          style={typeFilter === "luxury" ? selected : null}
+        >
+          Luxury
+        </p>
+        <p onClick={() => setSearchParams({ type: "" })}>Clear All</p>
       </div>
       <div className="van-list">
         {displayedVans.map((van, idx) => (

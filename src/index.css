@@ -183,6 +183,11 @@ a {
   cursor: pointer;
 }
 
+.selected {
+  border-color: var(--clr-orange);
+  color: var(--clr-orange);
+}
+
 .van-card {
   background-color: white;
   color: black;
