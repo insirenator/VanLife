@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function VanDetails() {
   const params = useParams();
   const [van, setVan] = useState({});
+  const { state } = useLocation();
+  console.log(state);
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -14,6 +16,11 @@ export default function VanDetails() {
 
   return (
     <div className="van-details-page">
+      <div className="go-back">
+        <Link to={`..?${state.search}`} relative="path">
+          {`Back To ${state.search.split("=").pop() || "All"} Vans`}
+        </Link>
+      </div>
       <h1 className="title">{van.name}</h1>
       <div className="van-details">
         <div className="image">

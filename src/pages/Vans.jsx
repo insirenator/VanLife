@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getVans } from "../api";
 
 function colorByType(type) {
   switch (type) {
@@ -15,9 +16,13 @@ function colorByType(type) {
   }
 }
 
-function Van({ id, name, type, price, imageUrl }) {
+function Van({ id, name, type, price, imageUrl, search }) {
   return (
-    <Link to={`/vans/${id}`} style={{ textDecoration: "none" }}>
+    <Link
+      to={`/vans/${id}`}
+      state={{ search }}
+      style={{ textDecoration: "none" }}
+    >
       <div className="van-card">
         <div
           style={{
@@ -62,17 +67,44 @@ const selected = {
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   console.log(typeFilter);
 
   useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans))
-      .catch((err) => console.log(err));
+    async function loadVans() {
+      setLoading(true);
+      try {
+        const data = await getVans();
+        setVans(data);
+      } catch (error) {
+        console.log(error);
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadVans();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <h2>Loading...</h2>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h2>There was an error: {error}</h2>
+      </div>
+    );
+  }
 
   const displayedVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
@@ -111,6 +143,7 @@ export default function Vans() {
             type={van.type}
             price={van.price}
             imageUrl={van.imageUrl}
+            search={searchParams.toString()}
           />
         ))}
       </div>
